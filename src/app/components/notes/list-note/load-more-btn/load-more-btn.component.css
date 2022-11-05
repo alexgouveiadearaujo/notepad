@@ -1,0 +1,13 @@
+.load-more {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.msg-center {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

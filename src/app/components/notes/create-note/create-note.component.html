@@ -1,0 +1,113 @@
+<section class="container create-note ff-inter">
+  <header class="header">
+    <h2>
+      Adicione uma nota:
+    </h2>
+  </header>
+  <form [formGroup]="form">
+    <label for="note">Nota</label>
+    <input
+      type="textarea"
+      class="input"
+      id="note"
+      formControlName="content"
+      placeholder="Digite sua nota ..."
+    />
+    <div class="msg__erro" *ngIf="form.get('content')?.errors?.['required'] && form.get('content')?.touched">campo obrigatória</div>
+
+    <label for="authorship">Autoria</label>
+    <input
+      type="textarea"
+      class="input"
+      id="authorship"
+      formControlName="authorship"
+      placeholder="Digite autoria ou fonte"
+    />
+    <div class="msg__erro" *ngIf="form.get('authorship')?.errors?.['required'] && form.get('authorship')?.touched">campo obrigatória</div>
+    <div class="msg__erro" *ngIf="form.get('authorship')?.errors?.['minlength']">campo precisa ter 3 caracters</div>
+
+    <label for="modelo">Selecione o modelo do card:</label>
+    <div class="container-radio">
+      <div class="radio-modelo">
+        <label for="modelo1">
+          <input
+            type="radio"
+            id="modelo1"
+            value="modelo1"
+            formControlName="model"
+
+          />
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 1</span>
+        </label>
+
+
+        <div class="modelo modelo1 ff-roboto-mono">
+          <img src="../../../../assets/imgs/modelo1.png" alt="aspas verdes" />
+          <p class="conteudo">{{ form.get('content')?.value }}</p>
+          <p class="autoria">
+            <b>{{ form.get('authorship')?.value }}</b>
+          </p>
+        </div>
+      </div>
+
+      <div class="radio-modelo">
+        <label for="modelo2">
+          <input
+            type="radio"
+            id="modelo2"
+            value="modelo2"
+            formControlName="model"
+          />
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 2</span>
+        </label>
+
+
+        <div class="modelo modelo2 ff-roboto-mono">
+          <img
+            src="../../../../assets/imgs/modelo2.png"
+            alt="aspas laranjas"
+          />
+          <p class="conteudo">{{ form.get('content')?.value }}</p>
+          <p class="autoria">
+            <b>{{ form.get('authorship')?.value }}</b>
+          </p>
+        </div>
+      </div>
+
+      <div class="radio-modelo">
+        <label for="modelo3">
+          <input
+            type="radio"
+            id="modelo3"
+            value="modelo3"
+            formControlName="model"
+          />
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 3</span>
+        </label>
+
+
+        <div class="modelo modelo3 ff-roboto-mono">
+          <img src="../../../../assets/imgs/modelo3.png" alt="aspas vermelhas" />
+          <p class="conteudo">{{ form.get('content')?.value }}</p>
+          <p class="autoria">
+            <b>{{ form.get('authorship')?.value }}</b>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="acoes">
+      <button (click)="saveNote()" [disabled]="!form.valid" [ngClass]="habilitarBtn()">Salvar</button>
+      <button (click)="cancelNote()"  class="botao">Cancelar</button>
+    </div>
+  </form>
+</section>

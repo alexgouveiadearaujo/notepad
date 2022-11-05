@@ -1,0 +1,61 @@
+.acoes {
+  display: flex;
+  justify-content: flex-end
+}
+
+
+.botao-editar,
+.botao-excluir,
+.botao-favorito {
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-top: 15px;
+}
+
+.note {
+  background-color: #F8F9FE;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.note .conteudo {
+  margin: 1rem auto;
+  word-wrap: break-word;
+}
+
+.note .autoria {
+  word-wrap: break-word;
+}
+
+.modelo1 {
+  box-shadow: 8px 8px 0px #6CBF46;
+}
+
+.modelo2 {
+  box-shadow: 8px 8px 0px #FF720A;
+}
+
+.modelo3 {
+  box-shadow: 8px 8px 0px #FF1425;
+}
+
+.note-g {
+  width: 556px;
+}
+
+.note-p {
+  width: 262px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .note-g {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 426px) {
+  .note-p {
+    width: 100%;
+  }
+}

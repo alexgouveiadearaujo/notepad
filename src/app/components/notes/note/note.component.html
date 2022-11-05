@@ -1,0 +1,21 @@
+<div class="note {{ note.model }} ff-roboto-mono" [ngClass]="noteSize()">
+  <img src="/assets/imgs/{{ note.model }}.png" alt="Aspas coloridas" />
+  <p class="conteudo">{{ note.content }}</p>
+  <p class="conteudo">
+    <b>{{ note.authorship }}</b>
+  </p>
+  <div class="acoes">
+    <button class="botao-favorito" (click)="updateFavorite()">
+      <img
+        src="/assets/imgs/icone-favorito-{{ changeFavoriteIcon() }}.png"
+        alt="icone favorito {{ changeFavoriteIcon() }}"
+      />
+    </button>
+    <button class="botao-editar" routerLink="/notes/edit-note/{{ note.id }}">
+      <img src="/assets/imgs/icone-editar.png" alt="icon edit" />
+    </button>
+    <button class="botao-excluir" routerLink="/notes/delete-note/{{ note.id }}">
+      <img src="/assets/imgs/icone-excluir.png" alt="icon delete" />
+    </button>
+  </div>
+</div>

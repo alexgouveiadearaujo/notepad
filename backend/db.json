@@ -1,0 +1,32 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "content": "Estudar Node.js",
+      "authorship": "Alex",
+      "model": "modelo3",
+      "favorite": true
+    },
+    {
+      "id": 2,
+      "content": " é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em TypeScript ",
+      "authorship": "Angular",
+      "model": "modelo1",
+      "favorite": false
+    },
+    {
+      "content": "Aniversário de Geozedeque, próximo domingo.",
+      "authorship": "🥳🎉❤️",
+      "model": "modelo2",
+      "favorite": false,
+      "id": 3
+    },
+    {
+      "content": "Deploy task: 4569 pendente",
+      "authorship": "Jenkins",
+      "model": "modelo3",
+      "favorite": false,
+      "id": 4
+    }
+  ]
+}

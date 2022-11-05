@@ -1,0 +1,6 @@
+<div class="center" *ngIf="moreNotes; else noMoreNotes">
+  <button class="botao load-more">Carregar mais</button>
+</div>
+<ng-template #noMoreNotes>
+  <p class="msg-center ff-inter">Não há mais notas para exibir.</p>
+</ng-template>

@@ -1,0 +1,27 @@
+<section class="container">
+  <header class="header d-flex">
+    <div class="search-note">
+      <input type="search" class="filter" placeholder="procurar..." autofocus [(ngModel)]="filter" (keyup)="searchFilter()"/>
+      <img src="/assets/imgs/lupa.png" alt="lupa">
+    </div>
+    <h2 class="ff-inter">Meu Mural</h2>
+    <button routerLink="/create-note" class="botao">
+      Adicionar bloco
+    </button>
+  </header>
+  <div class="mural" *ngIf="listNotes.length > 0; else noContent">
+    <div *ngFor="let item of listNotes">
+      <app-note [note]="item"></app-note>
+    </div>
+  </div>
+</section>
+<app-load-more-btn
+  [moreNotes]="moreNotess"
+  (click)="loadMoreNotes()"
+></app-load-more-btn>
+
+<ng-template #noContent>
+  <div class="ff-inter no-Notes">
+    <p>Ainda não possui notas criadas!</p>
+  </div>
+</ng-template>
