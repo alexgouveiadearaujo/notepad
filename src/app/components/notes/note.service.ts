@@ -11,7 +11,11 @@ export class NoteService {
 
   constructor(private http: HttpClient) {}
 
-  list(numberPage: number, filter: string): Observable<INote[]> {
+  list(
+    numberPage: number,
+    filter: string,
+    favorite: boolean
+  ): Observable<INote[]> {
     const itemsPage = 6;
     let params = new HttpParams()
       .set('_page', numberPage)
@@ -19,8 +23,21 @@ export class NoteService {
     if (filter.trim().length > 2) {
       params = params.set('q', filter);
     }
+    if (favorite) params = params.set('favorite', true);
     return this.http.get<INote[]>(this.API, { params });
   }
+
+  // listFavotiresNotes(numberPage:number , filter:string): Observable<INote[]>{
+  //   const itemsPage = 6;
+  //   let params = new HttpParams()
+  //     .set('_page', numberPage)
+  //     .set('_limit', itemsPage)
+  //     .set('favorite', true);
+  //   if (filter.trim().length > 2) {
+  //     params = params.set('q', filter);
+  //   }
+  //   return this.http.get<INote[]>(this.API, { params });
+  // }
 
   create(note: INote): Observable<INote> {
     return this.http.post<INote>(this.API, note);
@@ -31,11 +48,11 @@ export class NoteService {
     return this.http.put<INote>(url, note);
   }
 
-  changeFavorite(note: INote):Observable<INote>{
+  changeFavorite(note: INote): Observable<INote> {
     note.favorite = !note.favorite;
     // const url = `${this.API}/${note.id}`;
     // return this.http.put<INote>(url , note);
-    return this.edit(note)
+    return this.edit(note);
   }
 
   delete(id: number): Observable<INote> {

@@ -17,6 +17,8 @@ export class NoteComponent implements OnInit {
     favorite: false,
   };
 
+  @Input() favoriteList: INote[] = [];
+
   constructor(private service: NoteService) {}
 
   ngOnInit(): void {}
@@ -36,7 +38,9 @@ export class NoteComponent implements OnInit {
   }
 
   updateFavorite(){
-    this.service.changeFavorite(this.note).subscribe();
+    this.service.changeFavorite(this.note).subscribe(()=>{
+      this.favoriteList.splice(this.favoriteList.indexOf(this.note , 1));
+    });
   }
 
 }

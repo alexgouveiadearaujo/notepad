@@ -1,17 +1,26 @@
 <section class="container">
   <header class="header d-flex">
     <div class="search-note">
-      <input type="search" class="filter" placeholder="procurar..." autofocus [(ngModel)]="filter" (keyup)="searchFilter()"/>
-      <img src="/assets/imgs/lupa.png" alt="lupa">
+      <input
+        type="search"
+        class="filter"
+        placeholder="procurar..."
+        autofocus
+        [(ngModel)]="filter"
+        (keyup)="searchFilter()"
+      />
+      <img src="/assets/imgs/lupa.png" alt="lupa" />
     </div>
-    <h2 class="ff-inter">Meu Mural</h2>
-    <button routerLink="/create-note" class="botao">
-      Adicionar bloco
-    </button>
+    <h2 class="ff-inter">{{title}}</h2>
+    <div class="botoes">
+      <button class="botao" (click)="reloadComponent()">Meu Mural</button>
+      <button class="botao" (click)="favoritesList()" >Meu Favoritos</button>
+      <button routerLink="/create-note" class="botao">Novo bloco</button>
+    </div>
   </header>
   <div class="mural" *ngIf="listNotes.length > 0; else noContent">
     <div *ngFor="let item of listNotes">
-      <app-note [note]="item"></app-note>
+      <app-note [note]="item" [favoriteList]="favoriteList"></app-note>
     </div>
   </div>
 </section>
